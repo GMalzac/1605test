@@ -22,3 +22,4 @@ activate :deploy do |deploy|
 end
 
 set :debug_assets, true
+
