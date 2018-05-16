@@ -21,3 +21,23 @@ Array))return a?[this.options.strings.split("")]:console.error("Typewriter only 
 c=this.options.cursorClassName,b=document.createElement("span");b.className=c;b.innerHTML=a;this.el.appendChild(b);this.options.animateCursor&&(this._cursorAnimation=window.requestAnimationFrame(this._cursorAnimationFrame.bind(this)))};b._pauseCursorAnimation=function(){this._settings.cursorAnimationPaused||(window.cancelAnimationFrame(this._cursorAnimation),this._settings.cursorAnimationPaused=!0)};b._restartCursorAnimation=function(){if(!this._settings.cursorAnimationPaused)return console.error("Cursor animation is already running.");
 this._settings.cursorAnimationPaused=!1;this._cursorAnimation=window.requestAnimationFrame(this._cursorAnimationFrame.bind(this))};b._randomInteger=function(a,b){return Math.floor(Math.random()*(b-a+1))+a};b._randomID=function(){for(var a="",b=0;b<this._randomInteger(5,15);b++)a+="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".charAt(Math.floor(62*Math.random()));return a};b._generateUniqueID=function(){var a=this._randomID();return-1==this._settings.usedIDs.indexOf(a)?(this._settings.usedIDs.push(a),
 a):this._generateUniqueID.call(this)}})();
+
+var app = document.getElementById('app');
+
+var typewriter = new Typewriter(app, {
+    loop: true
+});
+
+typewriter.typeString('Web Applications')
+    .pauseFor(1500)
+    .deleteAll()
+    .typeString('Web Interfaces')
+    .pauseFor(1500)
+    .deleteAll()
+    .typeString('Websites')
+    .pauseFor(1500)
+    .deleteAll()
+    .typeString('Landing Pages')
+    .pauseFor(1500)
+    .deleteAll()
+    .start();
